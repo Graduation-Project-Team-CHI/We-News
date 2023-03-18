@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">We News</string>
+    <string name="login"> Login </string>
+    <string name="sign_up">Sign up</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+    <string name="already_have_an_account">Already have an account?Login</string>
+    <string name="or_sign_up_with">Or sign up with</string>
+    <string name="fui_sign_in_with_email">fui_sign_in_with_email</string>
+    <string name="fui_sign_in_with_google">fui_sign_in_with_google</string>
 </resources>
