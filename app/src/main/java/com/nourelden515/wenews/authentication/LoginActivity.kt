@@ -11,29 +11,33 @@ import com.nourelden515.wenews.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    // Creating firebaseAuth object
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // initialising Firebase auth object
         firebaseAuth = FirebaseAuth.getInstance()
         binding.textView.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
+            //finish()
         }
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.editText.toString()
-            val pass = binding.etPassword.editText.toString()
+            val email = binding.etEmail.editText!!.text.toString()
+            val pass = binding.etPassword.editText!!.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
                     if (it.isSuccessful) {
+                        Toast.makeText(this, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                        Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
