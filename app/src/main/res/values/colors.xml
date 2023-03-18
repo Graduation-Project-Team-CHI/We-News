@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="red">#AD1111</color>
-
     <color name="black">#FF000000</color>
     <color name="black_700">#121212</color>
     <color name="black_400">#3D3D3D</color>
@@ -10,5 +9,4 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_500">#F2F2F2</color>
     <color name="white_100">#A5A5A5</color>
-
 </resources>

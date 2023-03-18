@@ -34,7 +34,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher_logo" />
+                    app:srcCompat="@drawable/logo"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -62,7 +62,7 @@
                     android:layout_width="320dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="20dp"
-                    android:hint="@string/email"
+                    android:hint="@string/email_content"
                     android:textColorHint="@color/white_500"
                     android:background="@drawable/rounded_edittext"
                     android:orientation="vertical">
@@ -81,7 +81,7 @@
                     android:layout_width="320dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="20dp"
-                    android:hint="@string/password"
+                    android:hint="@string/password_content"
                     android:textColorHint="@color/white_500"
                     android:orientation="vertical"
                     app:endIconCheckable="true"
