@@ -19,10 +19,14 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        binding.yourBtnRegister.setOnClickListener {
-            val name = binding.yourFirstName.text.toString()
-            val pass = binding.createYourPassword.text.toString()
-            val email = binding.yourEmail.text.toString()
+        binding.textView.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnSignup.setOnClickListener {
+            val name = binding.yourName.editText.toString()
+            val pass = binding.yourPassword.editText.toString()
+            val email = binding.yourEmail.editText.toString()
             if (name.isNotEmpty() && pass.isNotEmpty() && email.isNotEmpty()) {
 
                 firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {

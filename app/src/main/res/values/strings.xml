@@ -4,8 +4,10 @@
     <string name="sign_up">Sign up</string>
     <string name="full_name">Full Name</string>
     <string name="password_content">Password</string>
+    <string name="or_login">or login with</string>
+    <string name="or_sign_up">or sign up with</string>
     <string name="email_content">E-mail</string>
-    <string name="already_have_an_account">Already have an account?Login</string>
+    <string name="already_have_an_account">Already have an account?</string>
     <string name="or_sign_up_with">Or sign up with</string>
     <string name="fui_sign_in_with_email">fui_sign_in_with_email</string>
     <string name="fui_sign_in_with_google">fui_sign_in_with_google</string>
