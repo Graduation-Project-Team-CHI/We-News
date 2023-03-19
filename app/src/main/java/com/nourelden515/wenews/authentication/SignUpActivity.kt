@@ -1,6 +1,5 @@
 package com.nourelden515.wenews.authentication
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -26,7 +25,12 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        binding.facebookIcon.setOnClickListener {
 
+        }
+        binding.googleIcon.setOnClickListener{
+
+        }
         binding.btnSignup.setOnClickListener {
             val name = binding.yourName.editText!!.text.toString()
             val pass = binding.yourPassword.editText!!.text.toString()
