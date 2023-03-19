@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "840908973193",
+    "project_id": "we-news-40498",
+    "storage_bucket": "we-news-40498.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840908973193:android:02af0bbc92b19c87621258",
+        "android_client_info": {
+          "package_name": "com.nourelden515.wenews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840908973193-esv5lcg8c308pvv1rv1o2uhbllde30vq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQqUu5cB_A8EiyShyr6zaeIVdN_6H5sxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840908973193-esv5lcg8c308pvv1rv1o2uhbllde30vq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
