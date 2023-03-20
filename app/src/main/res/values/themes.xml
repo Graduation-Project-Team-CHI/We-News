@@ -116,5 +116,9 @@
         <item name="dividerColor">@color/black_200</item>
     </style>
 
+    <style name="Theme.WeNews.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.WeNews.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>
