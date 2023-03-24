@@ -32,6 +32,8 @@ class LoginActivity : AppCompatActivity() {
         binding.textView.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
+            // startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
         createRequest()
         binding.googleIcon.setOnClickListener{
@@ -117,5 +119,4 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
