@@ -123,5 +123,9 @@
         <item name="dividerColor">@color/black_200</item>
     </style>
 
+    <style name="TextView">
+        <item name="android:textColor">@color/white_400</item>
+    </style>
+
 
 </resources>
