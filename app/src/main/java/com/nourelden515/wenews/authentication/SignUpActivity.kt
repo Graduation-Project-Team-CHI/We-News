@@ -19,9 +19,10 @@ import com.nourelden515.wenews.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
+
     // create Firebase authentication object
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var googleSignInClient : GoogleSignInClient
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
-       googleSignInClient = GoogleSignIn.getClient(this , gso)
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
         binding.textView.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -43,69 +44,70 @@ class SignUpActivity : AppCompatActivity() {
         binding.facebookIcon.setOnClickListener {
 
         }
-        binding.googleIcon.setOnClickListener{
-                signInGoogle()
+        binding.googleIcon.setOnClickListener {
+            signInGoogle()
         }
         binding.btnSignup.setOnClickListener {
-            val name = binding.yourName.editText!!.text.toString()
             val pass = binding.yourPassword.editText!!.text.toString()
             val email = binding.yourEmail.editText!!.text.toString()
-            if (name.isNotEmpty() && pass.isNotEmpty() && email.isNotEmpty()) {
-                firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
+            if (pass.isNotEmpty() && email.isNotEmpty()) {
+                firebaseAuth.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(this) {
                         if (it.isSuccessful) {
-                            Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT)
+                                .show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()
                         } else {
 
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                             Toast.makeText(this, "Singed Up Failed!", Toast.LENGTH_SHORT).show()
                         }
                     }
-                }
-            else {
+            } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
 
             }
         }
     }
+
     //
-    private fun signInGoogle(){
+    private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         launcher.launch(signInIntent)
     }
 
-    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result ->
-        if (result.resultCode == Activity.RESULT_OK){
+    private val launcher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
 
-            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            handleResults(task)
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                handleResults(task)
+            }
         }
-    }
 
     private fun handleResults(task: Task<GoogleSignInAccount>) {
-        if (task.isSuccessful){
-            val account : GoogleSignInAccount? = task.result
-            if (account != null){
+        if (task.isSuccessful) {
+            val account: GoogleSignInAccount? = task.result
+            if (account != null) {
                 updateUI(account)
             }
-        }else{
-            Toast.makeText(this, task.exception.toString() , Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun updateUI(account: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(account.idToken , null)
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
-            if (it.isSuccessful){
-                val intent : Intent = Intent(this , MainActivity::class.java)
-                intent.putExtra("email" , account.email)
-                intent.putExtra("name" , account.displayName)
+            if (it.isSuccessful) {
+                val intent: Intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("email", account.email)
+                intent.putExtra("name", account.displayName)
                 startActivity(intent)
-            }else{
-                Toast.makeText(this, it.exception.toString() , Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
