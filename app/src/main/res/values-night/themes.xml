@@ -120,7 +120,7 @@
     <style name="dividerStyle">
         <item name="android:layout_margin">16dp</item>
         <item name="android:layout_height">1dp</item>
-        <item name="dividerColor">@color/black_200</item>
+        <item name="dividerColor">@color/white_500</item>
     </style>
 
 
