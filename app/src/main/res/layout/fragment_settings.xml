@@ -115,5 +115,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
         </LinearLayout>
+
+    <TextView
+        android:id="@+id/Version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:drawablePadding="@dimen/padding_medium"
+        android:gravity="center_vertical"
+        android:paddingVertical="@dimen/spacing_12"
+        android:text="@string/Version"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_container_settings" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
