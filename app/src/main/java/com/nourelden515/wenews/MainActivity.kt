@@ -1,8 +1,12 @@
 package com.nourelden515.wenews
 
+import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -12,6 +16,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nourelden515.wenews.databinding.ActivityMainBinding
+import com.nourelden515.wenews.settings.OnDayNightStateChanged
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     private fun setupAppBar() {
@@ -122,4 +128,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
 }

@@ -54,18 +54,18 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
-            <TextView
+
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/theme"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_12"
                 android:gravity="center_vertical"
                 android:paddingVertical="@dimen/spacing_12"
                 android:text="@string/theme"
-                android:clickable="true"
-                android:focusable="true"
                 android:textSize="@dimen/text_size_large"
                 app:drawableStartCompat="@drawable/baseline_lightbulb_24" />
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />

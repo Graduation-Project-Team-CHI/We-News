@@ -14,6 +14,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.nourelden515.wenews.MainActivity
 import com.nourelden515.wenews.R
 import com.nourelden515.wenews.databinding.ActivityLoginBinding
+import javax.security.auth.callback.Callback
 
 
 class LoginActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var mGoogleSignInClient: GoogleSignInClient
     val RC_SIGN_IN: Int = 1
     lateinit var gso: GoogleSignInOptions
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
