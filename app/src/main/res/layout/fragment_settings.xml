@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img"
             android:layout_width="200dp"
@@ -14,20 +21,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_account_circle_24" />
 
-    <Button
-        android:id="@+id/change_password"
-        android:layout_width="226dp"
-        android:layout_height="50dp"
-        android:layout_margin="@dimen/margin_small"
-        android:background="@drawable/btn_shape"
-        android:drawableStart="@drawable/baseline_lock_24"
-        android:drawablePadding="4dp"
-        android:text="@string/change_password"
-        android:textAllCaps="false"
-        android:textSize="@dimen/text_size_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img" />
+        <Button
+            android:id="@+id/change_password"
+            android:layout_width="226dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/btn_shape"
+            android:drawableStart="@drawable/baseline_lock_24"
+            android:drawablePadding="4dp"
+            android:text="@string/change_password"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img" />
 
         <LinearLayout
             android:id="@+id/layout_container_settings"
@@ -39,6 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/change_password">
+
             <TextView
                 android:id="@+id/privacy_Policy"
                 android:layout_width="wrap_content"
@@ -51,6 +59,7 @@
                 android:text="@string/privacy_Policy"
                 android:textSize="@dimen/text_size_large"
                 app:drawableStartCompat="@drawable/baseline_lock_24" />
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
@@ -69,6 +78,7 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/about_Us"
                 android:layout_width="wrap_content"
@@ -81,9 +91,11 @@
                 android:focusable="true"
                 android:textSize="@dimen/text_size_large"
                 app:drawableStartCompat="@drawable/info" />
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/contact_Us"
                 android:layout_width="wrap_content"
@@ -96,9 +108,11 @@
                 android:focusable="true"
                 android:textSize="@dimen/text_size_large"
                 app:drawableStartCompat="@drawable/baseline_phone_24" />
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/log_out"
                 android:layout_width="wrap_content"
@@ -111,23 +125,25 @@
                 android:focusable="true"
                 android:textSize="@dimen/text_size_large"
                 app:drawableStartCompat="@drawable/logout" />
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
         </LinearLayout>
 
-    <TextView
-        android:id="@+id/Version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:drawablePadding="@dimen/padding_medium"
-        android:gravity="center_vertical"
-        android:paddingVertical="@dimen/spacing_12"
-        android:text="@string/Version"
-        android:textSize="@dimen/text_size_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_container_settings" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/Version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:drawablePadding="@dimen/padding_medium"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/Version"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_container_settings" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 

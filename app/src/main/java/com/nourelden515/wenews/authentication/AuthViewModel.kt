@@ -9,7 +9,7 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
     val errorMessage: LiveData<String>
         get() = _errorMessage
 
-   // dialog.show()
+    // dialog.show()
     private val _isLoggedIn = MutableLiveData<Boolean>()
     val isLoggedIn: LiveData<Boolean>
         get() = _isLoggedIn
@@ -18,12 +18,10 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             userRepository.signUp(email, password)
                 .addOnSuccessListener {
-                    _isLoggedIn.value = true
+                    _isLoggedIn.value = userRepository.isLoggedIn()
                 }
-        }
-            else
-            {
-                _errorMessage.value = "Please enter a valid email and password"
+        } else {
+            _errorMessage.value = "Please enter a valid email and password"
         }
     }
 
@@ -31,16 +29,18 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             userRepository.login(email, password)
                 .addOnSuccessListener {
-                    _isLoggedIn.value = true
+                    _isLoggedIn.value = userRepository.isLoggedIn()
                 }
-        }
-        else
-        {
+        } else {
             _errorMessage.value = "Please enter a valid email and password"
         }
     }
 
     fun checkLoggedIn() {
         _isLoggedIn.value = userRepository.isLoggedIn()
+    }
+
+    fun checkLoggedInUser(): Boolean {
+        return userRepository.isLoggedIn()
     }
 }
