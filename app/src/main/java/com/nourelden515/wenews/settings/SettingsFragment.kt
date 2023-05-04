@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
-import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.nourelden515.wenews.BuildConfig
-import com.nourelden515.wenews.authentication.LoginActivity
+import com.nourelden515.wenews.authentication.AuthenticationActivity
 import com.nourelden515.wenews.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -44,7 +43,7 @@ class SettingsFragment : Fragment() {
 //            auth.signOut()
 //            val intent = Intent(view.context, LoginActivity::class.java)
 //            startActivity(intent)
-            val intent = Intent(activity, LoginActivity::class.java)
+            val intent = Intent(activity, AuthenticationActivity::class.java)
             startActivity(intent)
         }
         val switch = binding.theme
