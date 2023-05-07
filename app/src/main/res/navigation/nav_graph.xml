@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.nourelden515.wenews.authentication.login.LoginFragment"
+        android:name="com.nourelden515.wenews.ui.authentication.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.nourelden515.wenews.authentication.signup.SignUpFragment"
+        android:name="com.nourelden515.wenews.ui.authentication.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <action

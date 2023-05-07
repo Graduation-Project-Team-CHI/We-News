@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.authentication.login
+package com.nourelden515.wenews.ui.authentication.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,14 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.ui.MainActivity
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.authentication.AuthViewModel
+import com.nourelden515.wenews.ui.authentication.AuthViewModel
 import com.nourelden515.wenews.base.AuthViewModelFactory
 import com.nourelden515.wenews.data.UserRepository
-import com.nourelden515.wenews.databinding.FragmentLoginBinding
+import com.nourelden515.wenews.databinding.FragmentSignUpBinding
 
-class LoginFragment : Fragment() {
+class SignUpFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentSignUpBinding
     private val viewModel by lazy {
         ViewModelProvider(
             this,
@@ -27,35 +27,37 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View {
+
         // Hide the custom ActionBar
         (activity as MainActivity).supportActionBar?.hide()
 
         // Hide the BottomNavigation
         (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.GONE
 
-        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+        binding = FragmentSignUpBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.checkLoggedIn()
-        binding.btnLogin.setOnClickListener {
-            viewModel.login(
-                binding.etEmail.editText?.text.toString(),
-                binding.etPassword.editText?.text.toString()
+        binding.btnSignup.setOnClickListener {
+            viewModel.signUp(
+                binding.yourEmail.editText?.text.toString(),
+                binding.yourPassword.editText?.text.toString()
+
             )
         }
-
         viewModel.isLoggedIn.observe(viewLifecycleOwner) { isLoggedIn ->
             if (isLoggedIn) {
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
             }
         }
         binding.textView.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
 }

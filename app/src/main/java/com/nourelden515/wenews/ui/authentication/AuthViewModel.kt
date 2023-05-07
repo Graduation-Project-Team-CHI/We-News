@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.authentication
+package com.nourelden515.wenews.ui.authentication
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

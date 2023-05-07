@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.nourelden515.wenews.authentication.AuthViewModel" />
+            type="com.nourelden515.wenews.ui.authentication.AuthViewModel" />
     </data>
 
     <ScrollView
