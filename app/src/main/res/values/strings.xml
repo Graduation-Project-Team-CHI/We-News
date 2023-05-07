@@ -18,4 +18,11 @@
     <string name="settings">Settings</string>
     <string name="facebook_app_id">756248552687022</string>
     <string name="fb_login_protocol_scheme">fb214268554165523</string>
+    <string name="change_password">Change Password</string>
+    <string name="privacy_Policy">Privacy Policy </string>
+    <string name="theme">Theme</string>
+    <string name="about_Us">About Us</string>
+    <string name="contact_Us">Contact Us</string>
+    <string name="log_out">Log out</string>
+    <string name="Version">Version</string>
 </resources>

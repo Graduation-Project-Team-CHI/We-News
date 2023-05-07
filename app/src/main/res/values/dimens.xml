@@ -13,4 +13,8 @@
     <dimen name="button_radius">24dp</dimen>
     <dimen name="edit_text_radius">12dp</dimen>
     <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="spacing_8">8dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_4">4dp</dimen>
+    <dimen name="spacing_12">12dp</dimen>
 </resources>

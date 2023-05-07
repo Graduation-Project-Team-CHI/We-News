@@ -14,17 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeNews"
         tools:targetApi="31">
-
-        <activity
-            android:name=".authentication.SignUpActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".authentication.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

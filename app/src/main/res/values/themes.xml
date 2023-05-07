@@ -127,5 +127,11 @@
 
     <style name="Theme.WeNews.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AlertDialogThemeCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/alertdialog_black</item>
+        <item name="android:windowBackground">@color/alertdialog_whitegrey</item>
+    </style>
 
+    <color name="alertdialog_black">#FF000000</color>
+    <color name="alertdialog_whitegrey">#FFF2F2F2</color>
 </resources>
