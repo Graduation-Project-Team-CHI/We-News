@@ -3,7 +3,7 @@ package com.nourelden515.wenews.ui.authentication.signup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.base.AuthViewModelFactory
+import com.nourelden515.wenews.base.ViewModelFactory
 import com.nourelden515.wenews.base.BaseFragment
 import com.nourelden515.wenews.data.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSignUpBinding
@@ -12,11 +12,10 @@ import com.nourelden515.wenews.ui.authentication.AuthViewModel
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
     override val TAG: String = this::class.java.simpleName
     override val layoutIdFragment = R.layout.fragment_sign_up
-
     override val viewModel: AuthViewModel by lazy {
         ViewModelProvider(
             this,
-            AuthViewModelFactory(UserRepository())
+            ViewModelFactory(UserRepository())
         )[AuthViewModel::class.java]
     }
 

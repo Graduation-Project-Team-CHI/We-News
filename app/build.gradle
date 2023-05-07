@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -38,6 +39,7 @@ android {
 }
 
 dependencies {
+    def retrofit = '2.9.0'
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -55,10 +57,26 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // navigation dependency
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation 'com.sarveshathawale:kotlintoasts:1.0.1'
     implementation "androidx.preference:preference-ktx:1.2.0"
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
+
+    // retrofit dependency
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
+    //implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+
+
+    // Moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
+
+    // okHttp dependency
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11"
 }

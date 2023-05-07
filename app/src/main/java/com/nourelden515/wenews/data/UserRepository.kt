@@ -3,8 +3,9 @@ package com.nourelden515.wenews.data
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.nourelden515.wenews.base.BaseRepository
 
-class UserRepository {
+class UserRepository : BaseRepository() {
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     fun signUp(email: String, password: String): Task<AuthResult> {

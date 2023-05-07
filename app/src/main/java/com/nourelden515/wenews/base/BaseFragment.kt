@@ -24,13 +24,14 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
 
         _binding = DataBindingUtil.inflate(
             inflater,
             layoutIdFragment,
-            container, false)
+            container, false
+        )
 
         _binding.apply {
             lifecycleOwner = viewLifecycleOwner
@@ -50,11 +51,17 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
         Log.e(TAG, value.toString())
     }
 
-    fun hideActionBarAndBottomNav(){
+    fun hideActionBarAndBottomNav() {
         // Hide the custom ActionBar
         (activity as MainActivity).supportActionBar?.hide()
 
         // Hide the BottomNavigation
         (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.GONE
+    }
+
+    fun showActionBarAndBottomNav() {
+        // Show the custom ActionBar and BottomNavigation when the fragment is destroyed
+        (activity as MainActivity).supportActionBar?.show()
+        (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.VISIBLE
     }
 }

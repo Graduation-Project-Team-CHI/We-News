@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.nourelden515.wenews.BuildConfig
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.base.AuthViewModelFactory
+import com.nourelden515.wenews.base.ViewModelFactory
 import com.nourelden515.wenews.data.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSettingsBinding
 
@@ -22,7 +22,7 @@ class SettingsFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider(
             this,
-            AuthViewModelFactory(UserRepository())
+            ViewModelFactory(UserRepository())
         )[SettingsViewModel::class.java]
     }
     lateinit var versionTV: TextView

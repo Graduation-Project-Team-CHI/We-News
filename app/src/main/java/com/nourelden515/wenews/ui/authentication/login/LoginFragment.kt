@@ -3,7 +3,7 @@ package com.nourelden515.wenews.ui.authentication.login
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.base.AuthViewModelFactory
+import com.nourelden515.wenews.base.ViewModelFactory
 import com.nourelden515.wenews.base.BaseFragment
 import com.nourelden515.wenews.data.UserRepository
 import com.nourelden515.wenews.databinding.FragmentLoginBinding
@@ -12,11 +12,10 @@ import com.nourelden515.wenews.ui.authentication.AuthViewModel
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override val TAG: String = this::class.java.simpleName
     override val layoutIdFragment = R.layout.fragment_login
-
     override val viewModel: AuthViewModel by lazy {
         ViewModelProvider(
             this,
-            AuthViewModelFactory(UserRepository())
+            ViewModelFactory(UserRepository())
         )[AuthViewModel::class.java]
     }
 
