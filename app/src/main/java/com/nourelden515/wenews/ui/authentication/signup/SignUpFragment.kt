@@ -1,47 +1,27 @@
 package com.nourelden515.wenews.ui.authentication.signup
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.nourelden515.wenews.ui.MainActivity
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.ui.authentication.AuthViewModel
 import com.nourelden515.wenews.base.AuthViewModelFactory
+import com.nourelden515.wenews.base.BaseFragment
 import com.nourelden515.wenews.data.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSignUpBinding
+import com.nourelden515.wenews.ui.authentication.AuthViewModel
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
+    override val TAG: String = this::class.java.simpleName
+    override val layoutIdFragment = R.layout.fragment_sign_up
 
-    private lateinit var binding: FragmentSignUpBinding
-    private val viewModel by lazy {
+    override val viewModel: AuthViewModel by lazy {
         ViewModelProvider(
             this,
             AuthViewModelFactory(UserRepository())
         )[AuthViewModel::class.java]
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        // Hide the custom ActionBar
-        (activity as MainActivity).supportActionBar?.hide()
-
-        // Hide the BottomNavigation
-        (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.GONE
-
-        binding = FragmentSignUpBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setup() {
+        hideActionBarAndBottomNav()
 
         viewModel.checkLoggedIn()
         binding.btnSignup.setOnClickListener {
@@ -60,4 +40,5 @@ class SignUpFragment : Fragment() {
             findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
+
 }
