@@ -1,11 +1,11 @@
-package com.nourelden515.wenews.home
+package com.nourelden515.wenews.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.nourelden515.wenews.MainActivity
+import com.nourelden515.wenews.ui.MainActivity
 import com.nourelden515.wenews.R
 
 class HomeFragment : Fragment() {

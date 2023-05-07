@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.authentication
+package com.nourelden515.wenews.data
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult

@@ -1,4 +1,4 @@
-package com.nourelden515.wenews
+package com.nourelden515.wenews.ui
 
 import android.os.Bundle
 import android.view.View
@@ -11,6 +11,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.nourelden515.wenews.R
 import com.nourelden515.wenews.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.nourelden515.wenews.home.HomeFragment"
+        android:name="com.nourelden515.wenews.ui.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home">
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.nourelden515.wenews.settings.SettingsFragment"
+        android:name="com.nourelden515.wenews.ui.settings.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings">
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.nourelden515.wenews.explore.ExploreFragment"
+        android:name="com.nourelden515.wenews.ui.explore.ExploreFragment"
         android:label="@string/explore"
         tools:layout="@layout/fragment_explore">
         <action
@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.nourelden515.wenews.authentication.LoginFragment"
+        android:name="com.nourelden515.wenews.authentication.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.nourelden515.wenews.authentication.SignUpFragment"
+        android:name="com.nourelden515.wenews.authentication.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <action

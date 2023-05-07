@@ -1,7 +1,7 @@
-package com.nourelden515.wenews.settings
+package com.nourelden515.wenews.ui.settings
 
 import androidx.lifecycle.ViewModel
-import com.nourelden515.wenews.authentication.UserRepository
+import com.nourelden515.wenews.data.UserRepository
 
 class SettingsViewModel(private val repository: UserRepository) : ViewModel() {
     fun logOut() {

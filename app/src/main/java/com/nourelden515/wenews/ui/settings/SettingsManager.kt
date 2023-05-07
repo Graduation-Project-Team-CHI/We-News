@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.settings
+package com.nourelden515.wenews.ui.settings
 
 interface OnDayNightStateChanged {
 
