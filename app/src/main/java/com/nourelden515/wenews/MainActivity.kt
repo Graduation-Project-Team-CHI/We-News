@@ -1,12 +1,8 @@
 package com.nourelden515.wenews
 
-import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -16,7 +12,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nourelden515.wenews.databinding.ActivityMainBinding
-import com.nourelden515.wenews.settings.OnDayNightStateChanged
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.hide()
                     binding.toolbar.visibility = View.GONE
                 }
+
                 else -> {
                     supportActionBar?.show()
                     binding.toolbar.visibility = View.VISIBLE
@@ -71,23 +67,27 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.homeFragment,
                 R.id.settingsFragment,
-                R.id.exploreFragment
+                R.id.exploreFragment,
+                R.id.loginFragment,
+                R.id.signUpFragment
             )
         )
     }
 
     private fun setOnNavigationItemSelectedListener(
         navView: BottomNavigationView,
-        navController: NavController
+        navController: NavController,
     ) {
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.homeFragment -> {
                     navigateFromHome(navController)
                 }
+
                 R.id.settingsFragment -> {
                     navigateFromSettings(navController)
                 }
+
                 R.id.exploreFragment -> {
                     navigateFromExplore(navController)
                 }
@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             R.id.homeFragment -> {
                 navController.navigate(R.id.action_homeFragment_to_exploreFragment)
             }
+
             R.id.settingsFragment -> {
                 navController.navigate(R.id.action_settingsFragment_to_exploreFragment)
             }
@@ -112,6 +113,7 @@ class MainActivity : AppCompatActivity() {
             R.id.homeFragment -> {
                 navController.navigate(R.id.action_homeFragment_to_settingsFragment)
             }
+
             R.id.exploreFragment -> {
                 navController.navigate(R.id.action_exploreFragment_to_settingsFragment)
             }
@@ -123,12 +125,12 @@ class MainActivity : AppCompatActivity() {
             R.id.settingsFragment -> {
                 navController.navigate(R.id.action_settingsFragment_to_homeFragment)
             }
+
             R.id.exploreFragment -> {
                 navController.navigate(R.id.action_exploreFragment_to_homeFragment)
             }
         }
     }
-
 
 
 }

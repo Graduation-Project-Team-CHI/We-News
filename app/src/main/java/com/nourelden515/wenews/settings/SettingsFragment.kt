@@ -1,7 +1,6 @@
 package com.nourelden515.wenews.settings
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.nourelden515.wenews.BuildConfig
+import com.nourelden515.wenews.R
 import com.nourelden515.wenews.authentication.AuthViewModelFactory
-import com.nourelden515.wenews.authentication.AuthenticationActivity
 import com.nourelden515.wenews.authentication.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSettingsBinding
 
@@ -29,7 +29,7 @@ class SettingsFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
 
         binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
@@ -45,8 +45,7 @@ class SettingsFragment : Fragment() {
 
         binding.logOut.setOnClickListener {
             viewModel.logOut()
-            val intent = Intent(activity, AuthenticationActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_settingsFragment_to_loginFragment)
         }
         val switch = binding.theme
         val sharedPreferences = requireActivity().getSharedPreferences("Mode", Context.MODE_PRIVATE)

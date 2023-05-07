@@ -1,11 +1,10 @@
 package com.nourelden515.wenews.authentication
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.MainActivity
@@ -15,23 +14,32 @@ import com.nourelden515.wenews.databinding.FragmentSignUpBinding
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
-    private lateinit var viewModel: AuthViewModel
+    private val viewModel by lazy {
+        ViewModelProvider(
+            this,
+            AuthViewModelFactory(UserRepository())
+        )[AuthViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        // Hide the custom ActionBar
+        (activity as MainActivity).supportActionBar?.hide()
+
+        // Hide the BottomNavigation
+        (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.GONE
+
         binding = FragmentSignUpBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val userRepository = UserRepository()
-        viewModel = ViewModelProvider(
-            this,
-            AuthViewModelFactory(userRepository)
-        ).get(AuthViewModel::class.java)
+
         viewModel.checkLoggedIn()
         binding.btnSignup.setOnClickListener {
             viewModel.signUp(
@@ -42,13 +50,11 @@ class SignUpFragment : Fragment() {
         }
         viewModel.isLoggedIn.observe(viewLifecycleOwner) { isLoggedIn ->
             if (isLoggedIn) {
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
+                findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
             }
         }
         binding.textView.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
-
 }

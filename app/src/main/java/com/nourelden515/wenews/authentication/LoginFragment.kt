@@ -1,6 +1,5 @@
 package com.nourelden515.wenews.authentication
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,15 +24,21 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
+        // Hide the custom ActionBar
+        (activity as MainActivity).supportActionBar?.hide()
+
+        // Hide the BottomNavigation
+        (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.GONE
+
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.checkLoggedIn()
         binding.btnLogin.setOnClickListener {
             viewModel.login(
                 binding.etEmail.editText?.text.toString(),
@@ -43,13 +48,11 @@ class LoginFragment : Fragment() {
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner) { isLoggedIn ->
             if (isLoggedIn) {
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }
         }
         binding.textView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
     }
-
 }
