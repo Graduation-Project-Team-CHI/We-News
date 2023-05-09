@@ -3,6 +3,7 @@ package com.nourelden515.wenews.data.remote
 import com.nourelden515.wenews.utils.Constants.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,7 +19,14 @@ object API {
         level = HttpLoggingInterceptor.Level.BASIC
     }
 
+    private val headerInterceptor = Interceptor { chain ->
+        chain.proceed(chain.request().newBuilder().also {
+            it.addHeader("Content-Type", "application/json")
+        }.build())
+    }
+
     private val client = OkHttpClient.Builder().apply {
+        addInterceptor(headerInterceptor)
         addInterceptor(logInterceptor)
     }.build()
 
