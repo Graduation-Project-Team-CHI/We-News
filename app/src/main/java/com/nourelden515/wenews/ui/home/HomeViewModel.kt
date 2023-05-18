@@ -3,9 +3,9 @@ package com.nourelden515.wenews.ui.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.nourelden515.wenews.base.BaseViewModel
-import com.nourelden515.wenews.data.NewsRepository
-import com.nourelden515.wenews.model.NewsRequest
-import com.nourelden515.wenews.model.PredictionResponse
+import com.nourelden515.wenews.data.repository.NewsRepository
+import com.nourelden515.wenews.data.remote.model.PredictionRequest
+import com.nourelden515.wenews.data.remote.model.PredictionResponse
 import com.nourelden515.wenews.utils.UiState
 import kotlinx.coroutines.launch
 
@@ -17,7 +17,7 @@ class HomeViewModel(private val repository: NewsRepository) : BaseViewModel() {
 
     fun predict() {
         viewModelScope.launch {
-            val news = NewsRequest(news.value ?: "Temp")
+            val news = PredictionRequest(news.value ?: "Temp")
             repository.predict(news).collect {
                 predictionResponse.postValue(it)
             }

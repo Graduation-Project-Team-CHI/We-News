@@ -3,7 +3,7 @@ package com.nourelden515.wenews.ui.authentication
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nourelden515.wenews.data.UserRepository
+import com.nourelden515.wenews.data.repository.UserRepository
 
 class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
     private val _errorMessage = MutableLiveData<String>()

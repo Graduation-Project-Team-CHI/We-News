@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.model
+package com.nourelden515.wenews.data.remote.model
 
 data class User(
     val email: String,

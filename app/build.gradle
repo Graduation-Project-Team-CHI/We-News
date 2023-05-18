@@ -6,6 +6,9 @@ plugins {
     id 'androidx.navigation.safeargs'
 }
 
+def apikeyPropertiesFile = rootProject.file("local.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 android {
     namespace 'com.nourelden515.wenews'
     compileSdk 33
@@ -16,6 +19,8 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "API_KEY", apikeyProperties['API_KEY'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -5,7 +5,7 @@ import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.R
 import com.nourelden515.wenews.base.ViewModelFactory
 import com.nourelden515.wenews.base.BaseFragment
-import com.nourelden515.wenews.data.UserRepository
+import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSignUpBinding
 import com.nourelden515.wenews.ui.authentication.AuthViewModel
 

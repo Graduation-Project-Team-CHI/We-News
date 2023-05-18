@@ -1,32 +1,26 @@
 package com.nourelden515.wenews.ui.explore
 
 import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.nourelden515.wenews.R
+import com.nourelden515.wenews.base.BaseFragment
+import com.nourelden515.wenews.base.ViewModelFactory
+import com.nourelden515.wenews.data.repository.NewsRepository
+import com.nourelden515.wenews.databinding.FragmentExploreBinding
 
-class ExploreFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ExploreFragment()
+class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
+    override val TAG: String = this::class.java.simpleName
+    override val layoutIdFragment = R.layout.fragment_explore
+    override val viewModel: ExploreViewModel by lazy {
+        ViewModelProvider(
+            this,
+            ViewModelFactory(NewsRepository())
+        )[ExploreViewModel::class.java]
     }
 
-    private lateinit var viewModel: ExploreViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_explore, container, false)
+    override fun setup() {
+        viewModel.getNewsByCategory("health")
+        viewModel.news.observe(viewLifecycleOwner){
+            log(it)
+        }
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ExploreViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
