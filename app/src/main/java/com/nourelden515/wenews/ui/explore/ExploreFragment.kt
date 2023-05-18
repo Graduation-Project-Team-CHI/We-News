@@ -18,7 +18,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
     }
 
     override fun setup() {
-        viewModel.getNewsByCategory("health")
+        //viewModel.getNewsByCategory("health")
         viewModel.news.observe(viewLifecycleOwner){
             log(it)
         }
