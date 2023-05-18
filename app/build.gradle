@@ -79,4 +79,8 @@ dependencies {
 
     // okHttp dependency
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11"
+
+    //pie chart
+    implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
 }

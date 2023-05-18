@@ -84,6 +84,7 @@
                 android:layout_margin="@dimen/margin_medium"
                 android:background="@drawable/btn_shape"
                 android:text="@string/login"
+                android:textColor="@color/white_500"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_large"
                 app:backgroundTint="@null"

@@ -13,9 +13,11 @@ class HomeViewModel(private val repository: NewsRepository) : BaseViewModel() {
     override val TAG: String = this::class.java.simpleName
 
     val predictionResponse = MutableLiveData<UiState<PredictionResponse?>>()
+    val news = MutableLiveData<String>()
 
-    fun predict(news: NewsRequest) {
+    fun predict() {
         viewModelScope.launch {
+            val news = NewsRequest(news.value ?: "Temp")
             repository.predict(news).collect {
                 predictionResponse.postValue(it)
             }

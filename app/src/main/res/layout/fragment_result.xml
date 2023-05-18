@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nourelden515.wenews.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.result.ResultFragment">
+
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/pie_chart"
+            style="@style/BackgroundCustomShapePieChart"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_margin="@dimen/spacing_giant"
+            app:layout_constraintBottom_toTopOf="@id/btn_check_new"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.predictionResponse}" />
+
+        <TextView
+            android:id="@+id/text_view_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_giant"
+            app:layout_constraintBottom_toBottomOf="@id/pie_chart"
+            app:layout_constraintEnd_toEndOf="@+id/pie_chart"
+            app:layout_constraintStart_toStartOf="@id/pie_chart"
+            app:layout_constraintTop_toTopOf="@id/pie_chart"
+            app:result="@{viewModel.predictionResponse.toData().prediction}"
+            app:showWhenSuccess="@{viewModel.predictionResponse}"
+            tools:text="Fake" />
+
+        <Button
+            android:id="@+id/btn_check_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginVertical="@dimen/spacing_giant"
+            android:background="@drawable/btn_shape"
+            android:text="@string/check_another_news"
+            android:textAllCaps="false"
+            android:textColor="@color/white_500"
+            android:textSize="@dimen/text_size_large"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pie_chart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/this_result_is_generated_by_ai_model_with_accuracy_of_97"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintEnd_toEndOf="@id/btn_check_new"
+            app:layout_constraintStart_toStartOf="@id/btn_check_new"
+            app:layout_constraintTop_toBottomOf="@id/btn_check_new"
+            app:showWhenSuccess="@{viewModel.predictionResponse}" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:indeterminateTint="@color/red"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.predictionResponse}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
