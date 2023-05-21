@@ -2,7 +2,7 @@ package com.nourelden515.wenews.ui.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.nourelden515.wenews.base.BaseViewModel
+import com.nourelden515.wenews.ui.base.BaseViewModel
 import com.nourelden515.wenews.data.repository.NewsRepository
 import com.nourelden515.wenews.data.remote.model.PredictionRequest
 import com.nourelden515.wenews.data.remote.model.PredictionResponse

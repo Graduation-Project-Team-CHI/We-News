@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.base
+package com.nourelden515.wenews.ui.base
 
 import android.os.Bundle
 import android.util.Log

@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.nourelden515.wenews.BuildConfig
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.base.ViewModelFactory
+import com.nourelden515.wenews.ui.base.ViewModelFactory
 import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSettingsBinding
 

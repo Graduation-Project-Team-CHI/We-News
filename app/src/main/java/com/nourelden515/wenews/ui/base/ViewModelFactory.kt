@@ -1,4 +1,4 @@
-package com.nourelden515.wenews.base
+package com.nourelden515.wenews.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

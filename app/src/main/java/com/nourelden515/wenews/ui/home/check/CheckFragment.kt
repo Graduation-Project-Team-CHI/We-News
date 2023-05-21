@@ -3,8 +3,8 @@ package com.nourelden515.wenews.ui.home.check
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.base.BaseFragment
-import com.nourelden515.wenews.base.ViewModelFactory
+import com.nourelden515.wenews.ui.base.BaseFragment
+import com.nourelden515.wenews.ui.base.ViewModelFactory
 import com.nourelden515.wenews.data.repository.NewsRepository
 import com.nourelden515.wenews.databinding.FragmentCheckBinding
 import com.nourelden515.wenews.ui.home.HomeViewModel
