@@ -8,6 +8,6 @@ abstract class BaseViewModel : ViewModel() {
     abstract val TAG: String
 
     protected open fun log(message: String) {
-        Log.v(TAG, message)
+        Log.e(TAG, message)
     }
 }

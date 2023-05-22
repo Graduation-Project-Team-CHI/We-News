@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setNavigation() {
         setSupportActionBar(binding.toolbar)
-        val navView: BottomNavigationView = binding.navView
+        navView = binding.navView
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
         val navController = navHostFragment.navController
@@ -43,24 +44,27 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
         setOnNavigationItemSelectedListener(navView, navController)
-        //setupActionBarVisibility(navController)
+        setupVisibility(navController)
     }
 
-    private fun setupActionBarVisibility(navController: NavController) {
+    private fun setupVisibility(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.homeFragment -> {
-                    supportActionBar?.hide()
-                    binding.toolbar.visibility = View.GONE
-                }
+            val topLevelDestinations = setOf(
+                R.id.homeFragment,
+                R.id.settingsFragment,
+                R.id.exploreFragment
+            )
 
-                else -> {
-                    supportActionBar?.show()
-                    binding.toolbar.visibility = View.VISIBLE
-                }
+            if (destination.id in topLevelDestinations) {
+                supportActionBar?.show()
+                binding.toolbar.visibility = View.VISIBLE
+                navView.visibility = View.VISIBLE
+            } else {
+                //supportActionBar?.hide()
+                //binding.toolbar.visibility = View.GONE
+                navView.visibility = View.GONE
             }
         }
-
     }
 
     private fun setupAppBar() {
@@ -132,6 +136,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

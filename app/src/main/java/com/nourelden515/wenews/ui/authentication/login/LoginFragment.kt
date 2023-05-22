@@ -1,22 +1,19 @@
 package com.nourelden515.wenews.ui.authentication.login
 
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.ui.base.ViewModelFactory
-import com.nourelden515.wenews.ui.base.BaseFragment
 import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentLoginBinding
 import com.nourelden515.wenews.ui.authentication.AuthViewModel
+import com.nourelden515.wenews.ui.base.BaseFragment
+import com.nourelden515.wenews.ui.base.ViewModelFactory
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override val TAG: String = this::class.java.simpleName
     override val layoutIdFragment = R.layout.fragment_login
-    override val viewModel: AuthViewModel by lazy {
-        ViewModelProvider(
-            this,
-            ViewModelFactory(UserRepository())
-        )[AuthViewModel::class.java]
+    override val viewModel: AuthViewModel by viewModels {
+        ViewModelFactory(UserRepository())
     }
 
     override fun setup() {

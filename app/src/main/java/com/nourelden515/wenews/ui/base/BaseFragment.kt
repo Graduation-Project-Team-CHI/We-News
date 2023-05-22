@@ -45,7 +45,7 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
         setup()
     }
 
-    abstract fun setup()
+    protected open fun setup() {}
 
     protected fun log(value: Any) {
         Log.e(TAG, value.toString())

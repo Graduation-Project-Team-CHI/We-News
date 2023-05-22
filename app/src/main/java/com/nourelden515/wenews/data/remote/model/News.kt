@@ -1,5 +1,9 @@
 package com.nourelden515.wenews.data.remote.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class News(
     val author: String? = "",
     val content: String? = "",
@@ -9,9 +13,10 @@ data class News(
     val title: String? = "",
     val url: String? = "",
     val urlToImage: String? = ""
-){
+):Parcelable{
+    @Parcelize
     data class Source(
         val id: String? = "",
         val name: String? = ""
-    )
+    ):Parcelable
 }

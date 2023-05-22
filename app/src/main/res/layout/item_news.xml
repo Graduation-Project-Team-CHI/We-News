@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_small"
         android:layout_marginVertical="@dimen/spacing_tiny"
+        android:onClick="@{()->listener.onClickNews(item)}"
         android:layout_marginBottom="@dimen/spacing_8"
         app:cardCornerRadius="@dimen/radius_semi_large"
         style="@style/cardBackground"

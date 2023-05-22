@@ -1,27 +1,36 @@
 package com.nourelden515.wenews.ui.explore
 
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
 import com.nourelden515.wenews.R
 import com.nourelden515.wenews.data.repository.NewsRepository
 import com.nourelden515.wenews.databinding.FragmentExploreBinding
 import com.nourelden515.wenews.ui.base.BaseFragment
 import com.nourelden515.wenews.ui.base.ViewModelFactory
+import com.nourelden515.wenews.utils.EventObserve
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>(), TabLayout.OnTabSelectedListener {
     override val TAG: String = this::class.java.simpleName
     override val layoutIdFragment = R.layout.fragment_explore
-    override val viewModel: ExploreViewModel by lazy {
-        ViewModelProvider(
-            this,
-            ViewModelFactory(NewsRepository())
-        )[ExploreViewModel::class.java]
+    override val viewModel: ExploreViewModel by viewModels {
+        ViewModelFactory(NewsRepository())
     }
 
     override fun setup() {
         initiateAdapter()
         addTabs()
         binding.tabsLayout.addOnTabSelectedListener(this)
+        addObservers()
+    }
+
+    private fun addObservers() {
+        viewModel.newsClick.observe(viewLifecycleOwner,
+            EventObserve {
+                val action = ExploreFragmentDirections.actionExploreFragmentToDetailsFragment(it)
+                findNavController().navigate(action)
+            }
+        )
     }
 
     private fun addTabs() {
@@ -83,4 +92,35 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), TabLayout.OnTabS
     override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
     override fun onTabReselected(tab: TabLayout.Tab?) {}
+
+    override fun onResume() {
+        super.onResume()
+        restoreTabLayoutState()
+        restoreRecycleViewState()
+    }
+
+    private fun restoreRecycleViewState() {
+        if (viewModel.stateInitialized()) {
+            binding.recycleViewExplore.layoutManager?.onRestoreInstanceState(
+                viewModel.restoreRecyclerViewState()
+            )
+        }
+    }
+
+    private fun restoreTabLayoutState() {
+        if (viewModel.tabLayoutStateInitialized()) {
+            with(binding.tabsLayout) {
+                val currentTab = viewModel.restoreTabLayoutState()
+                setScrollPosition(currentTab, 0f, true)
+                getTabAt(currentTab)?.select()
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.saveTabLayoutState(binding.tabsLayout.selectedTabPosition)
+        binding.recycleViewExplore.layoutManager?.onSaveInstanceState()
+            ?.let { viewModel.saveRecyclerViewState(it) }
+    }
 }

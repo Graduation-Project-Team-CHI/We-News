@@ -1,5 +1,6 @@
 package com.nourelden515.wenews.ui.explore
 
+import android.os.Parcelable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -8,11 +9,30 @@ import com.nourelden515.wenews.data.remote.model.NewsResponse
 import com.nourelden515.wenews.data.repository.NewsRepository
 import com.nourelden515.wenews.ui.base.BaseViewModel
 import com.nourelden515.wenews.utils.Constants
+import com.nourelden515.wenews.utils.EventHandler
 import com.nourelden515.wenews.utils.UiState
 import kotlinx.coroutines.launch
 
 class ExploreViewModel(private val repository: NewsRepository) : BaseViewModel(),ExploreInteractionListener {
     override val TAG: String = this::class.java.simpleName
+
+    private var tabLayoutState: Int = -1
+    fun saveTabLayoutState(selectedTabPosition: Int) {
+        tabLayoutState = selectedTabPosition
+    }
+    fun restoreTabLayoutState(): Int = tabLayoutState
+    fun tabLayoutStateInitialized(): Boolean = tabLayoutState != -1
+
+    private lateinit var state: Parcelable
+    fun saveRecyclerViewState(parcelable: Parcelable) {
+        state = parcelable
+    }
+    fun restoreRecyclerViewState(): Parcelable = state
+    fun stateInitialized(): Boolean = ::state.isInitialized
+
+    private val _newsClick = MutableLiveData<EventHandler<News>>()
+    val newsClick: LiveData<EventHandler<News>>
+        get() = _newsClick
 
     private val _newsResponse = MutableLiveData<UiState<NewsResponse>>()
     val newsResponse: LiveData<UiState<NewsResponse>>
@@ -69,6 +89,6 @@ class ExploreViewModel(private val repository: NewsRepository) : BaseViewModel()
         _news.value = emptyList()
     }
     override fun onClickNews(item: News) {
-        //
+        _newsClick.postValue(EventHandler(item))
     }
 }

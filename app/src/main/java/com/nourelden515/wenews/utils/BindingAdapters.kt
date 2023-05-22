@@ -60,12 +60,14 @@ fun setImageFromUrl(view: ImageView, url: String?) {
 }
 
 @BindingAdapter("app:dateTimeFormatted")
-fun TextView.setDateTimeFormatted(dateTimeString: String) {
-    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
-    val outputFormat = SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.getDefault())
+fun TextView.setDateTimeFormatted(dateTimeString: String?) {
+    dateTimeString?.let {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.getDefault())
 
-    val date = inputFormat.parse(dateTimeString)
-    val formattedDateTime = outputFormat.format(date)
+        val date = inputFormat.parse(it)
+        val formattedDateTime = outputFormat.format(date)
 
-    text = formattedDateTime
+        text = formattedDateTime
+    }
 }
