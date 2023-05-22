@@ -54,15 +54,24 @@ class MainActivity : AppCompatActivity() {
                 R.id.settingsFragment,
                 R.id.exploreFragment
             )
+            when (destination.id) {
+                in topLevelDestinations -> {
+                    supportActionBar?.hide()
+                    binding.toolbar.visibility = View.GONE
+                    navView.visibility = View.VISIBLE
+                }
 
-            if (destination.id in topLevelDestinations) {
-                supportActionBar?.show()
-                binding.toolbar.visibility = View.VISIBLE
-                navView.visibility = View.VISIBLE
-            } else {
-                //supportActionBar?.hide()
-                //binding.toolbar.visibility = View.GONE
-                navView.visibility = View.GONE
+                R.id.loginFragment, R.id.signUpFragment -> {
+                    supportActionBar?.hide()
+                    binding.toolbar.visibility = View.GONE
+                    navView.visibility = View.GONE
+                }
+
+                R.id.detailsFragment -> {
+                    supportActionBar?.show()
+                    binding.toolbar.visibility = View.VISIBLE
+                    navView.visibility = View.GONE
+                }
             }
         }
     }

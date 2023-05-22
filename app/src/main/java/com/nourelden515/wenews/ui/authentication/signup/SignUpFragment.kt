@@ -18,8 +18,6 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
 
 
     override fun setup() {
-        hideActionBarAndBottomNav()
-
         viewModel.checkLoggedIn()
         binding.btnSignup.setOnClickListener {
             viewModel.signUp(

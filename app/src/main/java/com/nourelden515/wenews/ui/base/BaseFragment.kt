@@ -51,7 +51,7 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
         Log.e(TAG, value.toString())
     }
 
-    fun hideActionBarAndBottomNav() {
+    /*fun hideActionBarAndBottomNav() {
         // Hide the custom ActionBar
         (activity as MainActivity).supportActionBar?.hide()
 
@@ -61,7 +61,7 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
 
     fun showActionBarAndBottomNav() {
         // Show the custom ActionBar and BottomNavigation when the fragment is destroyed
-        (activity as MainActivity).supportActionBar?.show()
+        //(activity as MainActivity).supportActionBar?.show()
         (activity as MainActivity).findViewById<View>(R.id.nav_view)?.visibility = View.VISIBLE
-    }
+    }*/
 }

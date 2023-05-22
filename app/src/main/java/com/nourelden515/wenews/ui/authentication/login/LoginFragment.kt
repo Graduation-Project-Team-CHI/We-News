@@ -17,9 +17,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     override fun setup() {
-
-        hideActionBarAndBottomNav()
-
         viewModel.checkLoggedIn()
         binding.btnLogin.setOnClickListener {
             viewModel.login(

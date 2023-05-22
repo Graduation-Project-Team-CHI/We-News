@@ -96,8 +96,8 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.nourelden515.wenews.ui.DetailsFragment"
-        android:label="DetailsFragment"
+        android:name="com.nourelden515.wenews.ui.details.DetailsFragment"
+        android:label="News Details"
         tools:layout="@layout/fragment_details">
         <argument
             android:name="news"
