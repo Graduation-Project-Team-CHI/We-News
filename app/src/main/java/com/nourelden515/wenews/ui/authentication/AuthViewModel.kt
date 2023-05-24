@@ -1,8 +1,21 @@
 package com.nourelden515.wenews.ui.authentication
 
+import android.content.ContentValues.TAG
+import android.util.Log
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.Auth
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.nourelden515.wenews.data.repository.UserRepository
 
 class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
@@ -44,4 +57,30 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
     fun checkLoggedInUser(): Boolean {
         return userRepository.isLoggedIn()
     }
+
+    fun authenticateWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                _isLoggedIn.value = task.isSuccessful
+            }
+    }
+
+    private val _loginResult = MutableLiveData<LoginResult>()
+    val loginResult: LiveData<LoginResult> = _loginResult
+
+    private val firebaseAuth = FirebaseAuth.getInstance()
+
+    fun signInWithFacebook(accessToken: AccessToken) {
+        firebaseAuth.signInWithCredential(FacebookAuthProvider.getCredential(accessToken.token))
+            .addOnSuccessListener {
+                // Sign in succeeded
+                Log.d(TAG, "Facebook sign in succeeded!")
+            }
+            .addOnFailureListener {
+                // Sign in failed
+                Log.w(TAG, "Facebook sign in failed", it)
+            }
+    }
+
 }
