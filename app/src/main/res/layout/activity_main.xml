@@ -22,11 +22,11 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                app:titleCentered="true"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
                 app:popupTheme="@style/Theme.WeNews.PopupOverlay"
-                app:title="@string/home" />
+                app:title="@string/home"
+                app:titleCentered="true" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.fragment.app.FragmentContainerView
@@ -43,6 +43,7 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"
+            style="@style/navBackground"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:itemActiveIndicatorStyle="@style/Theme.WeNews.ActiveIndicator"

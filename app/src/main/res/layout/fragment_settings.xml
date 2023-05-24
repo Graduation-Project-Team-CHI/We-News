@@ -30,6 +30,7 @@
             android:drawableStart="@drawable/baseline_lock_24"
             android:drawablePadding="4dp"
             android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/white_500"
             android:paddingHorizontal="@dimen/spacing_medium"
             android:text="@string/change_password"
             android:textAllCaps="false"
