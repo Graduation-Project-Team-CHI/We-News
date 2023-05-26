@@ -42,6 +42,17 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }
         }
+        /*
+        viewModel.authState.observe(viewLifecycleOwner) { authState ->
+            when (authState) {
+                FacebookAuthViewModel.AuthState.AUTHENTICATED -> {
+                    // User is authenticated, navigate to next screen
+                }
+                FacebookAuthViewModel.AuthState.UNAUTHENTICATED -> {
+                    // Authentication failed, show error message
+                }
+            }
+        * */
         binding.textView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
@@ -81,16 +92,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 override fun onError(error: FacebookException) {
                     TODO("Not yet implemented")
                 }
-
                 override fun onSuccess(result: LoginResult) {
-                    TODO("Not yet implemented")
-                    result?.let {
+                    result.let {
                         // Get Access token from result and pass it to view model to sign in with Firebase
                         val accessToken = result.accessToken
-                        viewModel.signInWithFacebook(accessToken)
+                        viewModel.signUpWithFacebook(accessToken)
                     }
                 }
-                // ...
             })
     }
 }

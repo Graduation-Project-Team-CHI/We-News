@@ -66,21 +66,58 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
             }
     }
 
-    private val _loginResult = MutableLiveData<LoginResult>()
-    val loginResult: LiveData<LoginResult> = _loginResult
+//    private val _loginResult = MutableLiveData<LoginResult>()
+//    val loginResult: LiveData<LoginResult> = _loginResult
 
     private val firebaseAuth = FirebaseAuth.getInstance()
 
-    fun signInWithFacebook(accessToken: AccessToken) {
-        firebaseAuth.signInWithCredential(FacebookAuthProvider.getCredential(accessToken.token))
-            .addOnSuccessListener {
-                // Sign in succeeded
-                Log.d(TAG, "Facebook sign in succeeded!")
-            }
-            .addOnFailureListener {
-                // Sign in failed
-                Log.w(TAG, "Facebook sign in failed", it)
+//    fun signInWithFacebook(accessToken: AccessToken) {
+//
+//        firebaseAuth.signInWithCredential(FacebookAuthProvider.getCredential(accessToken.token))
+//            .addOnSuccessListener {
+//                // Sign in succeeded
+//                Log.d(TAG, "Facebook sign in succeeded!")
+//            }
+//            .addOnFailureListener {
+//                // Sign in failed
+//                Log.w(TAG, "Facebook sign in failed", it)
+//            }
+//    }
+
+    private val TAG = "FacebookAuthViewModel"
+
+    private val _authState = MutableLiveData<AuthState>()
+    val authState: LiveData<AuthState>
+        get() = _authState
+
+    fun signUpWithFacebook(token: AccessToken) {
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    _authState.value = AuthState.AUTHENTICATED
+                } else {
+                    Log.e(TAG, "signInWithCredential:failure", task.exception)
+                    _authState.value = AuthState.UNAUTHENTICATED
+                }
             }
     }
 
+    fun loginWithFacebook(token: AccessToken) {
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    _authState.value = AuthState.AUTHENTICATED
+                } else {
+                    Log.e(TAG, "signInWithCredential:failure", task.exception)
+                    _authState.value = AuthState.UNAUTHENTICATED
+                }
+            }
+    }
+
+    enum class AuthState {
+        AUTHENTICATED,
+        UNAUTHENTICATED
+    }
 }

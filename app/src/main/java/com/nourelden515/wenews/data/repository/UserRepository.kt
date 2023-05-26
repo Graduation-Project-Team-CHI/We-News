@@ -23,4 +23,5 @@ class UserRepository : BaseRepository() {
     fun logOut() {
         firebaseAuth.signOut()
     }
-}
+
+    }
