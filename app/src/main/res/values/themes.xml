@@ -63,6 +63,10 @@
         <item name="cardBackgroundColor">@color/white</item>
     </style>
 
+    <style name="navBackground" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
     <style name="cardHeader">
 
         <item name="android:layout_margin">@dimen/margin_medium</item>

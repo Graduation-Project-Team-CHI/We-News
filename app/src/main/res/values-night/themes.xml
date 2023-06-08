@@ -78,6 +78,10 @@
         <item name="cardBackgroundColor">@color/black_400</item>
     </style>
 
+    <style name="navBackground" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/black_400</item>
+    </style>
+
     <style name="tabItem">
         <item name="android:layout_marginHorizontal">@dimen/spacing_medium</item>
         <item name="android:paddingHorizontal">@dimen/spacing_medium</item>

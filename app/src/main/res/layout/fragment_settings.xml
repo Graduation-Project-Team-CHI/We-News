@@ -23,15 +23,18 @@
 
         <Button
             android:id="@+id/change_password"
-            android:layout_width="226dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:background="@drawable/btn_shape"
             android:drawableStart="@drawable/baseline_lock_24"
             android:drawablePadding="4dp"
+            android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/white_500"
+            android:paddingHorizontal="@dimen/spacing_medium"
             android:text="@string/change_password"
             android:textAllCaps="false"
-            android:textSize="@dimen/text_size_large"
+            android:textSize="@dimen/text_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img" />
@@ -49,7 +52,7 @@
 
             <TextView
                 android:id="@+id/privacy_Policy"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_12"
                 android:gravity="center_vertical"
@@ -81,7 +84,7 @@
 
             <TextView
                 android:id="@+id/about_Us"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_12"
                 android:gravity="center_vertical"
@@ -98,7 +101,7 @@
 
             <TextView
                 android:id="@+id/contact_Us"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_12"
                 android:gravity="center_vertical"
@@ -115,7 +118,7 @@
 
             <TextView
                 android:id="@+id/log_out"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_12"
                 android:gravity="center_vertical"
