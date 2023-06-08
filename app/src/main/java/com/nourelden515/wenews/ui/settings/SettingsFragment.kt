@@ -17,7 +17,8 @@ import com.nourelden515.wenews.ui.base.ViewModelFactory
 import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSettingsBinding
 
-class SettingsFragment : Fragment() {
+class
+SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding
     private val viewModel by lazy {
         ViewModelProvider(
@@ -42,7 +43,9 @@ class SettingsFragment : Fragment() {
         val version =
             "Version " + BuildConfig.VERSION_NAME + "." + BuildConfig.VERSION_CODE.toString()
         versionTV.text = version
-
+        binding.changePassword.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_updatePasswordFragment)
+        }
         binding.logOut.setOnClickListener {
             viewModel.logOut()
             findNavController().navigate(R.id.action_settingsFragment_to_loginFragment)

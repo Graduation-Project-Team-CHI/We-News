@@ -133,24 +133,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
                 android:layout_marginVertical="@dimen/margin_medium"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="16dp"
                 android:padding="@dimen/padding_small"
                 android:src="@drawable/google"
-                app:layout_constraintEnd_toStartOf="@+id/facebook_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.221"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_or" />
-
-            <ImageView
-                android:id="@+id/facebook_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_medium"
-                android:padding="@dimen/padding_small"
-                android:src="@drawable/facebook"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/google_icon"
-                app:layout_constraintTop_toTopOf="@+id/google_icon" />
 
             <TextView
                 android:id="@+id/do_not_have_account_tv"
@@ -162,7 +153,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/textView"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facebook_icon" />
+                app:layout_constraintTop_toBottomOf="@+id/google_icon" />
 
             <TextView
                 android:id="@+id/textView"

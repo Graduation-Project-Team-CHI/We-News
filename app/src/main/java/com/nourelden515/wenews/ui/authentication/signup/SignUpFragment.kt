@@ -1,5 +1,6 @@
 package com.nourelden515.wenews.ui.authentication.signup
 
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
@@ -57,6 +58,8 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
             viewModel.authenticateWithGoogle(account.idToken!!)
         } catch (e: ApiException) {
             Toast.makeText(requireContext(), "Not successful ", Toast.LENGTH_LONG).show()
+            val errorMessage = task.exception?.message
+            Log.e("Login", errorMessage.toString())
         }
     }
 }
