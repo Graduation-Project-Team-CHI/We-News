@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_changePasswordFragment"
             app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutUSFragment"
+            app:destination="@id/aboutUSFragment" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -120,4 +123,9 @@
             android:id="@+id/action_changePasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutUSFragment"
+        android:name="com.nourelden515.wenews.ui.settings.AboutUSFragment"
+        android:label="fragment_about_u_s"
+        tools:layout="@layout/fragment_about_u_s" />
 </navigation>
