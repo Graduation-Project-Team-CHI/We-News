@@ -69,6 +69,10 @@ class SettingsFragment : Fragment() {
                 editor.apply()
             }
         }
+    binding.changePassword.setOnClickListener {
+        findNavController().navigate(R.id.action_settingsFragment_to_changePasswordFragment)
+    }
+
     }
 
 }

@@ -48,4 +48,10 @@
     <string name="sports">Sports</string>
     <string name="technology">Technology</string>
     <string name="go_to_source_page">Go to source page</string>
+    <string name="update_password">Change Password</string>
+    <string name="your_password">Your Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="save">Save</string>
+
 </resources>

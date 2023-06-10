@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -108,4 +111,10 @@
             android:name="news"
             app:argType="com.nourelden515.wenews.data.remote.model.News" />
     </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.nourelden515.wenews.ui.settings.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password"
+        />
 </navigation>
