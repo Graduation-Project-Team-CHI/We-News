@@ -1,11 +1,14 @@
 package com.nourelden515.wenews.ui.settings
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -72,7 +75,11 @@ class SettingsFragment : Fragment() {
     binding.changePassword.setOnClickListener {
         findNavController().navigate(R.id.action_settingsFragment_to_changePasswordFragment)
     }
+   binding.contactUs.setOnClickListener {
+       val emailIntent =Intent(Intent.ACTION_SENDTO,Uri.fromParts("mailto","mayarhassan@gmail.com",null))
+       startActivity(Intent.createChooser(emailIntent,"send email..."))
 
+    }
     }
 
 }
