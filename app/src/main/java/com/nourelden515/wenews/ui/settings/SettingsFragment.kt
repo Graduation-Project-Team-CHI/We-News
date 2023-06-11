@@ -79,9 +79,12 @@ class SettingsFragment : Fragment() {
        val emailIntent =Intent(Intent.ACTION_SENDTO,Uri.fromParts("mailto","mayarhassan@gmail.com",null))
        startActivity(Intent.createChooser(emailIntent,"send email..."))
          }
-        binding.aboutUs.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_aboutUSFragment)
-        }
+   binding.aboutUs.setOnClickListener {
+       findNavController().navigate(R.id.action_settingsFragment_to_aboutUSFragment)
+   }
+   binding.privacyPolicy.setOnClickListener {
+       findNavController().navigate(R.id.action_settingsFragment_to_privacyPolicyFragment)
+   }
     }
 }
 
