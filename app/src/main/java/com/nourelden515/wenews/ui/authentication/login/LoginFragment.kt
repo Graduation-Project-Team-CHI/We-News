@@ -22,7 +22,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         ViewModelFactory(UserRepository())
     }
 
-    val callbackManager = CallbackManager.Factory.create()
+    private val callbackManager = CallbackManager.Factory.create()
     override fun setup() {
 
         viewModel.checkLoggedIn()
@@ -63,7 +63,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
-    }
+}
 
 
 

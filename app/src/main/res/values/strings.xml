@@ -51,9 +51,6 @@
     <string name="go_to_source_page">Go to source page</string>
     <string name="update_password">Change Password</string>
     <string name="your_password">Your Password</string>
-    <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="save">Save</string>
     <string name="string1"> Fake news is implemented specifically to works  on  the objective  of  detecting  fake  news and stop the rumors that  are  being  spread  through  the  various platforms  whether  it  be  social  media  or messaging  platforms to protecting the  society  from  these  unwanted  acts  of violence</string>
     <string name="string2"> The system will help the user to detect the fake news and separate them from certifiable ones, choosing the best features to obtain the highest precision and accuracy in detection</string>
     <string name="privacy_policy">Privacy Policy"</string>

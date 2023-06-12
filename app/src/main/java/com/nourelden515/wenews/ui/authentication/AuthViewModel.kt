@@ -50,7 +50,7 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
                 _isLoggedIn.value = task.isSuccessful
             }
     }
-    }
+}
 
 
 
