@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -44,7 +43,7 @@ SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         versionTV = binding.Version
         val version =
-            "Version " + BuildConfig.VERSION_NAME + "." + BuildConfig.VERSION_CODE.toString()
+            "Version"+BuildConfig.VERSION_NAME + "." + BuildConfig.VERSION_CODE.toString()
         versionTV.text = version
         binding.changePassword.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_updatePasswordFragment)

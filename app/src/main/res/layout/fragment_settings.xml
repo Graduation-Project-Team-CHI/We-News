@@ -142,7 +142,7 @@
             android:drawablePadding="@dimen/padding_medium"
             android:gravity="center_vertical"
             android:paddingVertical="@dimen/spacing_12"
-            android:text="@string/Version"
+            android:text="@string/version"
             android:textSize="@dimen/text_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
