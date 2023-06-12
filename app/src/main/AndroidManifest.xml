@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,16 +14,25 @@
         android:theme="@style/Theme.WeNews"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+    <meta-data android:name="com.facebook.sdk.ApplicationId"
+        android:value="@string/facebook_app_id"
+        tools:replace="android:value" />
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <meta-data android:name="com.twitter.sdk.android.CONSUMER_KEY" android:value="NWlBVlkxWG5UNG8tSzlKZlM0N2s6MTpjaQ"/>
+        <meta-data android:name="com.twitter.sdk.android.CONSUMER_SECRET" android:value="NgK_X8DT2FIfYOikWHny2PFxyehf4hEBnxPoZTYkJEdezPLFnE"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1234"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>
