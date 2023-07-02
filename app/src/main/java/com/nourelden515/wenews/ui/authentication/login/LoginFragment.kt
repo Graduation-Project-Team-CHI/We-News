@@ -4,7 +4,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.facebook.CallbackManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -22,7 +21,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         ViewModelFactory(UserRepository())
     }
 
-    private val callbackManager = CallbackManager.Factory.create()
     override fun setup() {
 
         viewModel.checkLoggedIn()
@@ -59,7 +57,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             val account = task.getResult(ApiException::class.java)!!
             viewModel.authenticateWithGoogle(account.idToken!!)
         } catch (e: ApiException) {
-            Toast.makeText(requireContext(), "Not successful ", Toast.LENGTH_LONG).show()
+            Toast.makeText(context,  "Error: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
 
