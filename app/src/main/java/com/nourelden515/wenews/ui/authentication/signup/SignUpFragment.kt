@@ -41,6 +41,11 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
                 findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
             }
         }
+        viewModel.errorMessage.observe(
+            viewLifecycleOwner,
+        ) { message ->
+            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        }
         binding.textView.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }

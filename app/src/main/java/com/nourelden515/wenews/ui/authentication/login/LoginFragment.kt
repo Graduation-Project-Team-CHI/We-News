@@ -36,7 +36,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 binding.etPassword.editText?.text.toString()
             )
         }
-
+      viewModel.errorMessage.observe(
+          viewLifecycleOwner,
+      ) { message ->
+          Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+      }
         viewModel.isLoggedIn.observe(viewLifecycleOwner) { isLoggedIn ->
             if (isLoggedIn) {
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
