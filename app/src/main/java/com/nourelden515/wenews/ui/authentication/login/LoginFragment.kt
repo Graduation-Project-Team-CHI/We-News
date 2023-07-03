@@ -16,6 +16,7 @@ import com.nourelden515.wenews.databinding.FragmentLoginBinding
 import com.nourelden515.wenews.ui.authentication.AuthViewModel
 import com.nourelden515.wenews.ui.base.BaseFragment
 import com.nourelden515.wenews.ui.base.ViewModelFactory
+import com.nourelden515.wenews.utils.onClickBackFromNavigation
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -27,7 +28,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     override fun setup() {
-
+        onClickBackFromNavigation()
         viewModel.checkLoggedIn()
         binding.btnLogin.setOnClickListener {
             viewModel.login(
