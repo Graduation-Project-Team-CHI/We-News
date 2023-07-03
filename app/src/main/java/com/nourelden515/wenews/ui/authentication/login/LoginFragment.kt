@@ -4,7 +4,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.facebook.CallbackManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.nourelden515.wenews.R
@@ -21,11 +20,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         ViewModelFactory(UserRepository())
     }
 
-    private val callbackManager = CallbackManager.Factory.create()
     override fun setup() {
 
         viewModel.checkLoggedIn()
         binding.btnLogin.setOnClickListener {
+            log("login")
             viewModel.login(
                 binding.etEmail.editText?.text.toString(),
                 binding.etPassword.editText?.text.toString()
@@ -34,6 +33,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner) { isLoggedIn ->
             if (isLoggedIn) {
+                log(isLoggedIn)
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }
         }

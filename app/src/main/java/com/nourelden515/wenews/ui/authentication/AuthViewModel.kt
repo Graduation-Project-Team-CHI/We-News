@@ -35,6 +35,8 @@ class AuthViewModel(private val userRepository: UserRepository) : BaseViewModel(
             userRepository.login(email, password)
                 .addOnSuccessListener {
                     _isLoggedIn.value = userRepository.isLoggedIn()
+                }.addOnFailureListener {
+                    log(it.message.toString())
                 }
         } else {
             _errorMessage.value = "Please enter a valid email and password"

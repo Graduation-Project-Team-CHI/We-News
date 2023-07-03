@@ -2,43 +2,35 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-    </data>
+
+    <data></data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.details.DetailsFragment">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/privacy_Policy"
-                android:layout_margin="@dimen/margin_medium"
-                android:textSize="@dimen/text_giant"
-                android:textStyle="bold"
-                android:gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/Introduction"
-                android:textStyle="bold"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/Introduction"
                 android:textSize="@dimen/text_large"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text1" />
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/text3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/str_1"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/str_1"
                 android:textSize="@dimen/text_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text2" />
@@ -47,56 +39,61 @@
                 android:id="@+id/text4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/Data_collection"
-                android:textStyle="bold"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/Data_collection"
                 android:textSize="@dimen/text_large"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text3" />
+
             <TextView
                 android:id="@+id/text5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/str_2"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/str_2"
                 android:textSize="@dimen/text_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text4" />
+
             <TextView
                 android:id="@+id/text6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/Data_sharing"
-                android:textStyle="bold"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/Data_sharing"
                 android:textSize="@dimen/text_large"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text5" />
+
             <TextView
                 android:id="@+id/text7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/str_3"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/str_3"
                 android:textSize="@dimen/text_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text6" />
+
             <TextView
                 android:id="@+id/text8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/Data_storage_and_security"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/Data_storage_and_security"
                 android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text7" />
+
             <TextView
                 android:id="@+id/text9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/str_4"
                 android:layout_margin="@dimen/margin_medium"
+                android:text="@string/str_4"
                 android:textSize="@dimen/text_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text8" />

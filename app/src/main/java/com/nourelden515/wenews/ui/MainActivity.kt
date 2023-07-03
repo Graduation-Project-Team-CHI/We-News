@@ -67,7 +67,10 @@ class MainActivity : AppCompatActivity() {
                     navView.visibility = View.GONE
                 }
 
-                R.id.detailsFragment -> {
+                R.id.detailsFragment,
+                R.id.aboutUSFragment,
+                R.id.changePasswordFragment,
+                R.id.privacyPolicyFragment -> {
                     supportActionBar?.show()
                     binding.toolbar.visibility = View.VISIBLE
                     navView.visibility = View.GONE

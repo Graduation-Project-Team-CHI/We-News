@@ -132,7 +132,7 @@
     <fragment
         android:id="@+id/changePasswordFragment"
         android:name="com.nourelden515.wenews.ui.settings.ChangePasswordFragment"
-        android:label="ChangePasswordFragment"
+        android:label="@string/change_password"
         tools:layout="@layout/fragment_change_password">
         <action
             android:id="@+id/action_changePasswordFragment_to_loginFragment"
@@ -141,11 +141,11 @@
     <fragment
         android:id="@+id/aboutUSFragment"
         android:name="com.nourelden515.wenews.ui.settings.AboutUSFragment"
-        android:label="fragment_about_u_s"
+        android:label="@string/about_Us"
         tools:layout="@layout/fragment_about_u_s" />
     <fragment
         android:id="@+id/privacyPolicyFragment"
         android:name="com.nourelden515.wenews.ui.settings.PrivacyPolicyFragment"
-        android:label="fragment_privacy_policy"
+        android:label="@string/privacy_Policy"
         tools:layout="@layout/fragment_privacy_policy" />
 </navigation>
