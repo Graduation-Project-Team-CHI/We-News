@@ -68,21 +68,11 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_forget_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:text="@string/forget_password"
-                android:textColor="@color/black_400"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_password" />
-
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_giant"
                 android:background="@drawable/btn_shape"
                 android:text="@string/login"
                 android:textAllCaps="false"
@@ -91,7 +81,7 @@
                 app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_forget_password" />
+                app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/google_auth"

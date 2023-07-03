@@ -15,9 +15,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.nourelden515.wenews.BuildConfig
 import com.nourelden515.wenews.R
-import com.nourelden515.wenews.ui.base.ViewModelFactory
 import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentSettingsBinding
+import com.nourelden515.wenews.ui.base.ViewModelFactory
 
 class
 SettingsFragment : Fragment() {
@@ -46,7 +46,7 @@ SettingsFragment : Fragment() {
             "Version"+BuildConfig.VERSION_NAME + "." + BuildConfig.VERSION_CODE.toString()
         versionTV.text = version
         binding.changePassword.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_updatePasswordFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_changePasswordFragment)
         }
         binding.logOut.setOnClickListener {
             viewModel.logOut()
