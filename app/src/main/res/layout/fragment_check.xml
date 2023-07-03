@@ -55,6 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:visibility="invisible"
                     android:background="@drawable/rounded_radio_group"
                     android:clipChildren="true"
                     android:orientation="horizontal">
