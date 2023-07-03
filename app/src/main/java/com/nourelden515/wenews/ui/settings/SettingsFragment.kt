@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.nourelden515.wenews.BuildConfig
 import com.nourelden515.wenews.R
 import com.nourelden515.wenews.data.repository.UserRepository
@@ -28,12 +27,11 @@ SettingsFragment : Fragment() {
             ViewModelFactory(UserRepository())
         )[SettingsViewModel::class.java]
     }
-    lateinit var versionTV: TextView
-    private lateinit var auth: FirebaseAuth
+    private lateinit var versionTV: TextView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
         return binding.root

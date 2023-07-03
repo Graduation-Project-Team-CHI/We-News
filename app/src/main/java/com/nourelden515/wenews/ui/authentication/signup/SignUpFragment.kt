@@ -1,9 +1,11 @@
 package com.nourelden515.wenews.ui.authentication.signup
 
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -14,6 +16,8 @@ import com.nourelden515.wenews.databinding.FragmentSignUpBinding
 import com.nourelden515.wenews.ui.authentication.AuthViewModel
 import com.nourelden515.wenews.ui.base.BaseFragment
 import com.nourelden515.wenews.ui.base.ViewModelFactory
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
@@ -47,6 +51,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
                 .build()
             val googleSignInIntent = GoogleSignIn.getClient(requireActivity(), gso).signInIntent
             googleSignInLauncher.launch(googleSignInIntent)
+            loding()
         }
     }
     private val googleSignInLauncher = registerForActivityResult(
@@ -56,10 +61,29 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
         try {
             val account = task.getResult(ApiException::class.java)!!
             viewModel.authenticateWithGoogle(account.idToken!!)
+            Toast.makeText(requireContext(), "successful ", Toast.LENGTH_LONG).show()
         } catch (e: ApiException) {
             Toast.makeText(requireContext(), "Not successful ", Toast.LENGTH_LONG).show()
             val errorMessage = task.exception?.message
             Log.e("Login", errorMessage.toString())
+            Toast.makeText(context,  "Error: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+    private  fun loding(){
+        binding.loading.visibility = View.VISIBLE
+        binding.loading.progress = 0
+        lifecycleScope.launch {
+            repeat(10) { progress ->
+                delay(500)
+                binding.loading.progress = (progress + 1) * 10
+            }
+            binding.loading.visibility = View.GONE
         }
     }
 }
+
+
+
+
+
+
