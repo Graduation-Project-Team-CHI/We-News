@@ -17,7 +17,7 @@ class HomeViewModel(private val repository: NewsRepository) : BaseViewModel() {
 
     fun predict() {
         viewModelScope.launch {
-            val news = PredictionRequest(news.value ?: "Temp")
+            val news = PredictionRequest(news.value ?: "")
             repository.predict(news).collect {
                 predictionResponse.postValue(it)
             }

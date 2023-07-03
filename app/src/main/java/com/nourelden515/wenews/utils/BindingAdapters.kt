@@ -34,9 +34,9 @@ fun getResult(textView: TextView, result: String?) {
     val percentage = result?.toFloatOrNull()?.times(100)
     if (percentage != null) {
         if (percentage >= 50) {
-            textView.text = String.format("Real News\n%.1f%%", percentage)
+            textView.text = String.format("Real News\n%.2f%%", percentage)
         } else {
-            textView.text = String.format("Fake News\n%.1f%%", 100 - percentage)
+            textView.text = String.format("Fake News\n%.2f%%", 100 - percentage)
         }
     }
 

@@ -28,13 +28,20 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
 
         viewModel.predictionResponse.observe(viewLifecycleOwner) {
             it.toData()?.apply {
+                log(this.prediction)
                 val prediction = this.prediction.toFloat() * 100
+                log(prediction)
                 setUpPieChart(prediction, 100 - prediction)
             }
         }
     }
 
     private fun setUpPieChart(real: Float, fake: Float) {
+        log("Fake: $fake")
+        log("Real: $real")
+
+        binding.pieChart.clearChart()
+
         binding.pieChart.addPieSlice(
             PieModel(
                 fake,
