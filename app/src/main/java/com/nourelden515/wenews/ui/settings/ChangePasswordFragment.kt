@@ -1,6 +1,5 @@
 package com.nourelden515.wenews.ui.settings
 
-import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -9,20 +8,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.nourelden515.wenews.R
+import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentChangePasswordBinding
+import com.nourelden515.wenews.ui.base.ViewModelFactory
 
 class ChangePasswordFragment : Fragment() {
     private lateinit var binding: FragmentChangePasswordBinding
     private lateinit var auth: FirebaseAuth
+    private val viewModel by lazy {
+        ViewModelProvider(
+            this,
+            ViewModelFactory(UserRepository())
+        )[SettingsViewModel::class.java]
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         binding = FragmentChangePasswordBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -36,7 +44,6 @@ class ChangePasswordFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SuspiciousIndentation")
     private fun changePassword() {
         if (binding.yourPass.editText?.text!!.isNotEmpty() &&
             binding.newPass.editText?.text!!.isNotEmpty() &&
@@ -50,7 +57,7 @@ class ChangePasswordFragment : Fragment() {
 
                     // Prompt the user to re-provide their sign-in credentials
                     user.reauthenticate(credential)
-                        ?.addOnCompleteListener {
+                        .addOnCompleteListener {
                             if (it.isSuccessful) {
                                 Log.d(TAG, "User re-authenticated.")
                                 Toast.makeText(
@@ -58,7 +65,7 @@ class ChangePasswordFragment : Fragment() {
                                     "re-authenticated Successful",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                user!!.updatePassword(binding.newPass.editText?.text.toString())
+                                user.updatePassword(binding.newPass.editText?.text.toString())
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
                                             Log.d(TAG, "User password updated.")
@@ -67,6 +74,7 @@ class ChangePasswordFragment : Fragment() {
                                                 "Password updated",
                                                 Toast.LENGTH_SHORT
                                             ).show()
+                                            viewModel.logOut()
                                             findNavController().navigate(R.id.action_changePasswordFragment_to_loginFragment)
                                         }
                                     }
