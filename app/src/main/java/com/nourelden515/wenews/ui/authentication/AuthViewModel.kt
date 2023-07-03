@@ -2,12 +2,12 @@ package com.nourelden515.wenews.ui.authentication
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.nourelden515.wenews.data.repository.UserRepository
+import com.nourelden515.wenews.ui.base.BaseViewModel
 
-class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
+class AuthViewModel(private val userRepository: UserRepository) : BaseViewModel() {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String>
         get() = _errorMessage
@@ -22,6 +22,8 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
             userRepository.signUp(email, password)
                 .addOnSuccessListener {
                     _isLoggedIn.value = userRepository.isLoggedIn()
+                }.addOnFailureListener {
+                    log(it.message.toString())
                 }
         } else {
             _errorMessage.value = "Please enter a valid email and password"
@@ -48,8 +50,12 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
         FirebaseAuth.getInstance().signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 _isLoggedIn.value = task.isSuccessful
+            }.addOnFailureListener {
+                log(it.message.toString())
             }
     }
+
+    override val TAG: String = this::class.java.simpleName
 }
 
 

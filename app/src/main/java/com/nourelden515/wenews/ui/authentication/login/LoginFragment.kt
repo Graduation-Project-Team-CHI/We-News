@@ -7,7 +7,6 @@ import androidx.navigation.fragment.findNavController
 import com.facebook.CallbackManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.nourelden515.wenews.R
 import com.nourelden515.wenews.data.repository.UserRepository
 import com.nourelden515.wenews.databinding.FragmentLoginBinding
@@ -54,12 +53,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private val googleSignInLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-        try {
-            val account = task.getResult(ApiException::class.java)!!
-            viewModel.authenticateWithGoogle(account.idToken!!)
-        } catch (e: ApiException) {
-            Toast.makeText(requireContext(), "Not successful ", Toast.LENGTH_LONG).show()
+        GoogleSignIn.getSignedInAccountFromIntent(result.data).addOnSuccessListener {
+            viewModel.authenticateWithGoogle(it.idToken!!)
+        }.addOnFailureListener {
+            Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_LONG).show()
+            log(it.message.toString())
         }
     }
 
